@@ -5,10 +5,12 @@ import com.hello.hello_spring.repository.MemberRepository;
 import com.hello.hello_spring.repository.MemoryMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
+@Transactional
 public class MemberService {
 
     //생성자로 바꿔주기(같은 객체 사용으로 테스트 더 용이)
