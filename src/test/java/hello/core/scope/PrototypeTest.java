@@ -24,7 +24,7 @@ public class PrototypeTest {
 
         assertThat(prototypeBean1).isNotSameAs(prototypeBean2);
 
-        //프로토는 생성과 의존관계 주입, 초기화까지만 관여
+        //프로토는 생성과 의존관계 주입, 초기화까지만 관여함
         ac.close();
 
         //종료 메서드도 클라이언트가 직접 호출해야함
