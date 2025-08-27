@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 동시성 문제가 고려되어 있지 않음, ConcurrentHashMap, AtomicLong 사용 고려
+ * 동시성 문제가 고려되어 있지 않다, ConcurrentHashMap, AtomicLong 사용 고려
  */
 
 public class MemberRepository {
@@ -20,7 +20,7 @@ public class MemberRepository {
         return instance;
     }
 
-    //싱글톤은 생성자 막아야함
+    // 싱글톤은 생성자 막아야함
     private MemberRepository(){
     }
 
