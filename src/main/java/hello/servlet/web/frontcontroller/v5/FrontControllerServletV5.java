@@ -48,25 +48,30 @@ public class FrontControllerServletV5 extends HttpServlet {
         handlerAdapters.add(new ControllerV4HandlerAdapter());
     }
 
+    // 실제 로직
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        //핸들러 찾아오기
+        //핸들러 찾아오기  *핸들러(Handler) = 실제 비즈니스 로직을 처리하는 Controller
         Object handler = getHandler(request);
         if (handler == null){
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             return;
         }
 
-        //어뎁터 찾아오기
+        //어뎁터 찾아오기 *Front Controller는 하나의 방식으로만 동작하고 싶어함 -> 변압기 느낌
         MyHandlerAdapter adapter = getHandlerAdapter(handler);
 
-        //핸들 호출
+        //핸들 호출  * 어뎁터를 통해 Controller 처리후 결과를 받아옴
         ModelView mv = adapter.handle(request, response, handler);
 
+        //처리 결과 생성
         String viewName = mv.getViewName();
+
+        // 처리 결과를 표시할 JSP 파일의 실제 경로 지정
         MyView view = viewResolver(viewName);
 
+        //뷰 렌더링 * Model데이터를 JSP에 전달하고 실행하여, 최종 HTML 생성 후 사용자에게 응답
         view.render(mv.getModel(), request, response);
     }
 
