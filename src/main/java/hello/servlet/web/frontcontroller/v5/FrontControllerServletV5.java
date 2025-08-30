@@ -62,7 +62,7 @@ public class FrontControllerServletV5 extends HttpServlet {
         //어뎁터 찾아오기 *Front Controller는 하나의 방식으로만 동작하고 싶어함 -> 변압기 느낌
         MyHandlerAdapter adapter = getHandlerAdapter(handler);
 
-        //핸들 호출  * 어뎁터를 통해 Controller 처리후 결과를 받아옴
+        //핸들 호출  * 어뎁터를 통해 Controller 처리후 결과를 받아옴 (찾아낸 handler를 실행)
         ModelView mv = adapter.handle(request, response, handler);
 
         //처리 결과 생성
