@@ -70,7 +70,7 @@ public class HomeController {
 
         Member loginMember = (Member) session.getAttribute(SessionConst.LOGIN_MEMBER);
 
-        //세션에 회원 데이터가 없으면 home
+        //세션에 회원 데이터가 없으면 home으로
         if (loginMember == null) {
             return "home";
         }
