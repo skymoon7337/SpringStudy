@@ -44,7 +44,7 @@ public class LoginCheckFilter implements Filter {
 
             filterChain.doFilter(servletRequest, servletResponse);
         } catch (Exception e) {
-            throw e; // 예외 로깅 가능, 하지만 톰캣까지 예외를 보내주어야 함
+            throw e; // 예외 로깅 가능, 하지만 톰캣까지 예외를 보내주어야 함 -> 톰캣이 예외 받음, 500 에러 페이지 또는 에러 처리
         } finally {
             log.info("인증 체크 필터 종료{}", requestURI);
         }
